@@ -16,11 +16,17 @@ public class Server {
         ServerSocket ss = new ServerSocket(3000);
         Socket s = ss.accept();
 
+        s.close();
+        ss.close();    
+    }
+
+    static void handle(Socket s) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
         PrintWriter out = new PrintWriter(s.getOutputStream(), true);
 
         String input = in.readLine();
         
+        if (input == null) return;
         System.out.println(input);
         File cartella = new File("documenti");
         File file = new File(cartella, input);
@@ -42,8 +48,5 @@ public class Server {
         else{
             out.println("ERR NOTFOUND");
         }
-
-        s.close();
-        ss.close();
     }
 }
