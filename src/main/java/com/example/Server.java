@@ -15,7 +15,7 @@ public class Server {
 
         ServerSocket ss = new ServerSocket(3000);
         Socket s = ss.accept();
-
+        handle(s);
         s.close();
         ss.close();    
     }
@@ -27,6 +27,17 @@ public class Server {
         String input = in.readLine();
         
         if (input == null) return;
+
+        if (input.contains("/") || input.contains("\\") || input.contains("..") ) {
+            out.println("ERR SYNTAX");
+            return;
+        } 
+
+        if (! input.endsWith(".txt")) {
+            out.println("ERR SYNTAX");
+            return;
+        }
+        
         System.out.println(input);
         File cartella = new File("documenti");
         File file = new File(cartella, input);
