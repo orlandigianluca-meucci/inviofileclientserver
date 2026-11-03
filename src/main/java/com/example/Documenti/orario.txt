@@ -1,0 +1,7 @@
+Lunedì: 7.55/14.00
+Martedì: 7.55/15.00
+Mercoledì: 7.55/14.00
+Giovedì: 7.55/15.00
+Venerdì: 7.55/14.00
+Sabato: /
+Domenica: /
